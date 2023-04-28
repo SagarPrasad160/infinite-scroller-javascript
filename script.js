@@ -1,16 +1,20 @@
-const url = `https://api.unsplash.com/photos/random/?client_id=-D73deWd9zWwy7iKv6DzO-ILbF9V4U-15-n9NspxKhQ&count=10`;
-
 const imageContainer = document.getElementById("image-container");
+const loader = document.getElementById("loader");
 
 let imagesLoaded = 0;
 let images = [];
-
 let ready = false;
+
+let count = 5;
+
+const url = `https://api.unsplash.com/photos/random/?client_id=-D73deWd9zWwy7iKv6DzO-ILbF9V4U-15-n9NspxKhQ&count=${count}`;
 
 const imageLoaded = () => {
   imagesLoaded++;
   if (imagesLoaded === images.length) {
     ready = true;
+    loader.hidden = true;
+    count = 30;
   }
 };
 
